@@ -1,0 +1,22 @@
+services:
+  pa11y-dashboard:
+    build: .
+    ports:
+      - 4000:4000
+    environment:
+      NODE_ENV: production
+      WEBSERVICE_DATABASE: mongodb://root:${MONGO_PASSWORD}@database:27017/pa11y-webservice?authSource=admin
+      #PORT:
+    depends_on:
+      - database
+  
+  database:
+    image: mongo:4.4
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
