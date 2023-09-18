@@ -9,6 +9,8 @@ services:
       #PORT:
     depends_on:
       - database
+    security_opt:
+      - seccomp=chrome.json
   
   database:
     image: mongo:4.4
