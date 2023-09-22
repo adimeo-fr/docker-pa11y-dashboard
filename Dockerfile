@@ -48,7 +48,7 @@ RUN groupadd -r pptruser && useradd -rm -g pptruser -G audio,video pptruser
 
 USER pptruser
 
-WORKDIR /app
+WORKDIR /home/pptruser
 COPY pa11y-dashboard/ .
 
 
