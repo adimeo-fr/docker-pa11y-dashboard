@@ -9,4 +9,5 @@ Run the following commands:
 ```bash
 git clone --recurse-submodules git@github.com:adimeo-fr/docker-pa11y-dashboard.git
 docker compose up
+URL : http://localhost:4000/
 ```
