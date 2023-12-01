@@ -5,13 +5,13 @@ services:
       - 4000:4000
     environment:
       NODE_ENV: production
-      WEBSERVICE_DATABASE: mongodb://root:${MONGO_PASSWORD}@database:27017/pa11y-webservice?authSource=admin
+      WEBSERVICE_DATABASE: mongodb://root:root@database:27017/pa11y-webservice?authSource=admin
       #PORT:
     depends_on:
       - database
     security_opt:
       - seccomp=chrome.json
-  
+
   database:
     image: mongo:4.4
     restart: unless-stopped
@@ -21,4 +21,4 @@ services:
       - ./db:/data/db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_ROOT_PASSWORD: root
